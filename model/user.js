@@ -23,17 +23,9 @@ const user = new moongose.Schema({
         type:String,
         default:""
     },
-    followers:[{
-        type:moongose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
-    followings:[{
-        type:moongose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
     createAt:[{
         type:Date,
         default:Date.now
     }]
 });
-module.Exports=mongoose.model('user',user)
+module.exports = mongoose.model('user', user)
