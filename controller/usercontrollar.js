@@ -22,15 +22,15 @@ exports.Signup = async (req, res) => {
 
 exports.Login = async (req, res) => {
     try {
-        const logindata = await userModel.findOne({ email: req.body.email });
+        const logindata = await model.findOne({ email: req.body.email });
         if (!logindata) throw new Error("Invalid email");
 
         const verypassword = await bcrypt.compare(req.body.password, logindata.password);
         if (!verypassword) throw new Error('Invalid password');
 
-        const token = jwt.sign({ id: logindata._id }, 'verify');
-        main(req.body.email)
+        const token = jwt.sign({id:logindata._id},'verify')
 
+        // const token = jwt.sign({ id: logindata._id }, 'verify');
         res.status(200).json({
             status: "success",
             message: "User logged in successfully",
