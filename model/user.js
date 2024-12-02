@@ -4,12 +4,12 @@ const user = new moongose.Schema({
     name: {
         type: String,
         required: true,
-
+      
     },
     email: {
         type: String,
         required: true,
-
+    
     },
     password: {
         type: String,
@@ -19,13 +19,13 @@ const user = new moongose.Schema({
         type: String,
         default: ""
     },
-    bio: {
-        type: String,
-        default: ""
+    bio:{
+        type:String,
+        default:""
     },
-    createAt: [{
-        type: Date,
-        default: Date.now
+    createAt:[{
+        type:Date,
+        default:Date.now
     }]
 });
 module.exports = mongoose.model('user', user)

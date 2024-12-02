@@ -6,7 +6,7 @@ exports.Signup = async (req, res) => {
     try {
         req.body.password = await bcrypt.hash(req.body.password, 10)
         const register = await model.create(req.body)
-        req.body.profilePicture = req.file?.filename;
+        req.body.profilePicture = req.file.filename;
         res.status(201).json({
             message: "User created successfully",
             status: 'signup sucssessfully !! welcome to our website',
